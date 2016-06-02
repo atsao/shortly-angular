@@ -1,14 +1,35 @@
 angular.module('shortly.services', [])
 
-.factory('Links', function ($http) {
+.factory('Links', function ($http, $q) {
   // Your code here
-  var Links = {};
+  var service = {};
+  var links = [];
 
-  Links.getLinks = function() {
+  var createLink = function(url) {
 
   }
 
-  return Links;
+  service.getLinks = function() {
+    var deferred = $q.defer();
+
+    $http({
+      method: 'GET',
+      url: '/api/links'
+    }).then(function(data) {
+      deferred.resolve(data);
+    }).catch(function(error) {
+      console.error(error);
+      deferred.reject('Error!');
+    });
+
+    return deferred.promise;
+  }
+
+  service.addLink = function(link) {
+    links.push(link);
+  }
+
+  return service;
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!

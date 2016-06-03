@@ -24,10 +24,10 @@ gulp.task('start', ['serve'],function () {
   bs({
     notify: true,
     // address for server,
-    server: 'localhost:3000',
+    // server: 'localhost:3000',
     injectChanges: true,
     files: paths.scripts.concat(paths.html, paths.styles),
-    proxy: 'localhost:8000'
+    // proxy: 'localhost:8000'
   });
 });
 

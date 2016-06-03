@@ -24,7 +24,7 @@ angular.module('shortly', [
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
     })
-    .when('/logout', {
+    .when('/signout', {
       controller: 'AuthController'
     })
 

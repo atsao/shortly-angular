@@ -5,38 +5,52 @@ angular.module('shortly.services', [])
   var service = {};
 
   service.getLinks = function() {
-    var deferred = $q.defer();
+    // var deferred = $q.defer();
 
-    $http({
+    // $http({
+    //   method: 'GET',
+    //   url: '/api/links'
+    // }).then(function(data) {
+    //   deferred.resolve(data);
+    // }).catch(function(error) {
+    //   console.error(error);
+    //   deferred.reject('Error!');
+    // });
+
+    // return deferred.promise;
+
+    return $http({
       method: 'GET',
-      url: '/api/links'
-    }).then(function(data) {
-      deferred.resolve(data);
-    }).catch(function(error) {
-      console.error(error);
-      deferred.reject('Error!');
+      url: '/api/links',
+      // contentType: 'application/json'
     });
-
-    return deferred.promise;
   }
 
   service.addLink = function(link) {
-    var deferred = $q.defer();
+    // var deferred = $q.defer();
 
-    console.log('link: ', link);
+    // console.log('link: ', link);
 
+    // $http({
+    //   method: 'POST',
+    //   url: '/api/links',
+    //   data: link
+    // }).then(function(data) {
+    //   console.log(data);
+    //   deferred.resolve(data);
+    // }).catch(function(error) {
+    //   deferred.reject(error);
+    // });
+
+    // return deferred.promise;
     $http({
       method: 'POST',
       url: '/api/links',
-      data: link
+      data: link,
+      // contentType: 'application/json'
     }).then(function(data) {
-      console.log(data);
-      deferred.resolve(data);
-    }).catch(function(error) {
-      deferred.reject(error);
-    });
-
-    return deferred.promise;
+      console.log('Success! Data posted: ', data);
+    })
   }
 
   return service;

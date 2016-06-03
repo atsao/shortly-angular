@@ -3,11 +3,6 @@ angular.module('shortly.services', [])
 .factory('Links', function ($http, $q) {
   // Your code here
   var service = {};
-  var links = [];
-
-  var createLink = function(url) {
-
-  }
 
   service.getLinks = function() {
     var deferred = $q.defer();
@@ -26,7 +21,22 @@ angular.module('shortly.services', [])
   }
 
   service.addLink = function(link) {
-    links.push(link);
+    var deferred = $q.defer();
+
+    console.log('link: ', link);
+
+    $http({
+      method: 'POST',
+      url: '/api/links',
+      data: link
+    }).then(function(data) {
+      console.log(data);
+      deferred.resolve(data);
+    }).catch(function(error) {
+      deferred.reject(error);
+    });
+
+    return deferred.promise;
   }
 
   return service;

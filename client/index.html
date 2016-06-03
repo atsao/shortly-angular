@@ -10,15 +10,7 @@
     <div id="container">
       <h1>Shortly</h1>
 
-      <div class='navigation'>
-        <ul>
-          <li><a href='/links' class='index'>All Links</a></li>
-          <li><a href='/shorten' class='create'>Shorten</a></li>
-        </ul>
-        <ul>
-          <li><a href='/signout' class='logout' ng-click="signout()">Signout</a></li>
-        </ul>
-      </div>
+      <nav></nav>
       
       <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
       <div ng-view></div>
@@ -28,9 +20,13 @@
 
       <script src="app/app.js"></script>
       <script src="app/auth/auth.js"></script>
+      <script src="app/nav/nav.js"></script>
       <script src="app/links/links.js"></script>
       <script src="app/shorten/shorten.js"></script>
       <script src="app/services/services.js"></script>
     </div>
+    <script type='text/javascript' id="__bs_script__">//<![CDATA[
+    document.write("<script async src='//HOST:3000/browser-sync/browser-sync-client.1.9.2.js'><\/script>".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));
+//]]></script>
   </body>
 </html>

@@ -3,7 +3,8 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
-  'ngRoute'
+  'ngRoute',
+  'shortly.nav'
 ])
 .config(function($routeProvider, $httpProvider, $locationProvider) {
   $routeProvider
@@ -18,14 +19,17 @@ angular.module('shortly', [
     // Your code here
     .when('/links', {
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      controller: 'LinksController',
+      resolve: {
+          isAuth: function(Auth) {
+            console.log('authorizing...');
+            return Auth.isAuth();
+          }
+        }
     })
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
-    })
-    .when('/signout', {
-      controller: 'AuthController',
     })
     .otherwise({ redirectTo: '/links'});
 

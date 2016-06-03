@@ -57,6 +57,7 @@ angular.module('shortly.services', [])
   };
 
   var isAuth = function () {
+    console.log('Checking auth: ', !!$window.localStorage.getItem('com.shortly'));
     return !!$window.localStorage.getItem('com.shortly');
   };
 

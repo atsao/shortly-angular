@@ -25,15 +25,16 @@ angular.module('shortly', [
       controller: 'ShortenController'
     })
     .when('/signout', {
-      controller: 'AuthController'
+      controller: 'AuthController',
     })
+    .otherwise({ redirectTo: '/links'});
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
 
     // Pretty URLs
-    // $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
 })
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor

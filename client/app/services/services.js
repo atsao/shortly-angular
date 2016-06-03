@@ -1,55 +1,26 @@
 angular.module('shortly.services', [])
 
-.factory('Links', function ($http, $q) {
+.factory('Links', function ($http) {
   // Your code here
   var service = {};
 
   service.getLinks = function() {
-    // var deferred = $q.defer();
-
-    // $http({
-    //   method: 'GET',
-    //   url: '/api/links'
-    // }).then(function(data) {
-    //   deferred.resolve(data);
-    // }).catch(function(error) {
-    //   console.error(error);
-    //   deferred.reject('Error!');
-    // });
-
-    // return deferred.promise;
-
     return $http({
       method: 'GET',
       url: '/api/links',
-      // contentType: 'application/json'
     });
   }
 
   service.addLink = function(link) {
-    // var deferred = $q.defer();
-
-    // console.log('link: ', link);
-
-    // $http({
-    //   method: 'POST',
-    //   url: '/api/links',
-    //   data: link
-    // }).then(function(data) {
-    //   console.log(data);
-    //   deferred.resolve(data);
-    // }).catch(function(error) {
-    //   deferred.reject(error);
-    // });
-
-    // return deferred.promise;
     $http({
       method: 'POST',
       url: '/api/links',
       data: link,
       // contentType: 'application/json'
     }).then(function(data) {
-      console.log('Success! Data posted: ', data);
+      return;
+    }).catch(function(error) {
+      console.error(error);
     })
   }
 

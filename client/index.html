@@ -3,32 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <title>Shortly</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="../styles/style.css" />
     <base href="/">
   </head>
   <body>
-    <h1>Shortly</h1>
+    <div id="container">
+      <h1>Shortly</h1>
 
-    <div class='navigation'>
-      <ul>
-        <li><a href='#/links' class='index'>All Links</a></li>
-        <li><a href='#/shorten' class='create'>Shorten</a></li>
-      </ul>
-      <ul>
-        <li><a href='#/signout' class='logout'>Signout</a></li>
-      </ul>
+      <div class='navigation'>
+        <ul>
+          <li><a href='/links' class='index'>All Links</a></li>
+          <li><a href='/shorten' class='create'>Shorten</a></li>
+        </ul>
+        <ul>
+          <li><a href='/signout' class='logout' ng-click="signout()">Signout</a></li>
+        </ul>
+      </div>
+      
+      <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
+      <div ng-view></div>
+
+      <script src="lib/angular/angular.js"></script>
+      <script src="lib/angular-route/angular-route.js"></script>
+
+      <script src="app/app.js"></script>
+      <script src="app/auth/auth.js"></script>
+      <script src="app/links/links.js"></script>
+      <script src="app/shorten/shorten.js"></script>
+      <script src="app/services/services.js"></script>
     </div>
-    
-    <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
-    <div ng-view></div>
-
-    <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular-route/angular-route.js"></script>
-
-    <script src="app/app.js"></script>
-    <script src="app/auth/auth.js"></script>
-    <script src="app/links/links.js"></script>
-    <script src="app/shorten/shorten.js"></script>
-    <script src="app/services/services.js"></script>
   </body>
 </html>

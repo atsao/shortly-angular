@@ -1,8 +1,10 @@
 <input type="text" ng-model="searchLink" placeholder="Filter links">{{ filterBy }}
 <div class="link" ng-repeat="link in data.links | orderBy: '-visits' | filter:searchLink">
-  <img src='./assets/redirect_icon.png'/>
-  <div class='visits'><span class='count'>{{ link.visits }}</span>Visits</div>
-  <div class='title'>{{ link.title }}</div>
-  <div class='original'>{{ link.url }}</div>
-  <a href='{{ link.base_url }}/{{ link.code }}' ng-click="goToLink(link.code)" target="_blank">{{ link.base_url }}/{{ link.code }}</a>
+  <a href='{{ link.base_url }}/api/links/{{ link.code }}' ng-click="goToLink(link.code)">
+    <img src='./assets/redirect_icon.png'/>
+    <div class='visits'><span class='count'>{{ link.visits }}</span>Visits</div>
+    <div class='title'>{{ link.title }}</div>
+    <div class='original'>{{ link.url }}</div>
+    {{ link.base_url }}/{{ link.code }}
+  </a>
 </div> 

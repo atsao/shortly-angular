@@ -1,11 +1,6 @@
-<div id='container'>
-<!-- Your code here -->
-  <form ng-submit="addLink()">
-    <input class='text' type='text' name='url' ng-model="link.url" placeholder="Enter a link to shorten">
-    <input type='submit' value='Shorten'>
-  </form>
-  <img class='spinner' src='assets/spiffygif_46x46.gif'>
-  <div class='message'></div>
-</div>
-
-
+<form name="linkForm" ng-submit="addLink()" novalidate>
+  <input class='text' type='text' name='url' ng-model="link.url" placeholder="Enter a link to shorten">
+  <input type='submit' value='Shorten' ng-disabled="linkForm.$invalid">
+</form>
+<!-- <img class='spinner' src='assets/spiffygif_46x46.gif'> -->
+<div class='message'></div>

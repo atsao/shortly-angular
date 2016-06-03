@@ -27,7 +27,7 @@ angular.module('shortly.services', [])
   service.goToLink = function(code) {
     $http({
       method: 'GET',
-      url: '/' + code,
+      url: '/api/links/' + code,
 
     });
   }

@@ -19,26 +19,25 @@ angular.module('shortly', [
     // Your code here
     .when('/links', {
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController',
-      resolve: {
-          isAuth: function(Auth) {
-            console.log('authorizing...');
-            return Auth.isAuth();
-          }
-        }
+      controller: 'LinksController'
     })
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
-      controller: 'ShortenController'
+      controller: 'ShortenController',
+      resolve: {
+        auth: ['Auth', function(Auth) {
+          return Auth.isAuth() === true;
+        }]
+      }
     })
-    .otherwise({ redirectTo: '/links'});
+    .otherwise({ redirectTo: '/signin'});
 
     // We add our $httpInterceptor into the array
     // of interceptors. Think of it like middleware for your ajax calls
     $httpProvider.interceptors.push('AttachTokens');
 
     // Pretty URLs
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 })
 .factory('AttachTokens', function ($window) {
   // this is an $httpInterceptor
@@ -68,6 +67,12 @@ angular.module('shortly', [
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
     if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
       $location.path('/signin');
+    }
+  });
+
+  $rootScope.$on('$routeChangeError', function(event, current, previous, eventObj) {
+    if (eventObj.authenticated === false) {
+      $location.path("/signin");
     }
   });
 });

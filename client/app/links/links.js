@@ -1,6 +1,6 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links) {
+.controller('LinksController', function ($scope, Links, Auth) {
   // Your code here
   $scope.data = [];
   
@@ -11,7 +11,6 @@ angular.module('shortly.links', [])
   }
 
   $scope.goToLink = function(code) {
-    console.log('code:', code);
     Links.goToLink(code);
   }
 

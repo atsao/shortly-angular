@@ -24,6 +24,14 @@ angular.module('shortly.services', [])
     })
   }
 
+  service.goToLink = function(code) {
+    $http({
+      method: 'GET',
+      url: '/' + code,
+
+    });
+  }
+
   return service;
 })
 .factory('Auth', function ($http, $location, $window) {

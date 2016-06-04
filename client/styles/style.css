@@ -102,7 +102,7 @@ form {
   margin: 10px;
 }
 
-form input[type=text], form input[type=password] {
+input:not([type=submit]) {
   width: 360px;
   display: block;
   font-size: inherit;

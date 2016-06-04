@@ -68,15 +68,21 @@ angular.module('shortly', [
     // if (next.$$route && next.$$route.authenticate && !Auth.isAuth()) {
     //   $location.path('/signin');
     // }
-    
+
+    if (!Auth.isAuth()) {
+      $location.path('/signin');
+    }
+  });
+
+  $rootScope.$on('$routeChangeSuccess', function(event, current, previous, eventObj) {
     if (!Auth.isAuth()) {
       $location.path('/signin');
     }
   });
 
   $rootScope.$on('$routeChangeError', function(event, current, previous, eventObj) {
-    if (eventObj.authenticated === false) {
-      $location.path("/signin");
+    if (!Auth.isAuth()) {
+      $location.path('/signin');
     }
   });
 });

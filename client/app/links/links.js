@@ -16,7 +16,5 @@ angular.module('shortly.links', [])
 
   if (Auth.isAuth()) {
     $scope.getLinks();
-  } else {
-    $location.path('/signin');
   }
 });

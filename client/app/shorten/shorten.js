@@ -9,8 +9,8 @@ angular.module('shortly.shorten', [])
     });
   }
 
-  if (!Auth.isAuth()) {
-    $location.path('/signin');
-  }
+  // if (!Auth.isAuth()) {
+  //   $location.path('/signin');
+  // }
 
 });

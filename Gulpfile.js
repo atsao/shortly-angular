@@ -27,7 +27,8 @@ gulp.task('start', ['serve'],function () {
     // server: 'localhost:3000',
     injectChanges: true,
     files: paths.scripts.concat(paths.html, paths.styles),
-    // proxy: 'localhost:8000'
+    proxy: 'localhost:8000',
+    port: 8888
   });
 });
 

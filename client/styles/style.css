@@ -105,9 +105,13 @@ form {
 form input[type=text], form input[type=password] {
   width: 360px;
   display: block;
-  font-size: 13px;
-  padding: 5px;
+  font-size: inherit;
+  padding: 10px;
   margin-bottom: 5px;
+  outline: none;
+  box-shadow: none;
+  border: solid 1px #ccc;
+  border-radius: 5px;
 }
 
 .error {
@@ -136,3 +140,16 @@ form input[type=text], form input[type=password] {
 .creator .message {
   clear: both;
 }
+
+
+.has-error .alert {
+  background-color: #fee;
+  color: #a33;
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.has-error input.ng-invalid {
+  border: solid 1px #ff0000;
+}
+

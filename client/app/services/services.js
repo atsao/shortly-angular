@@ -11,24 +11,22 @@ angular.module('shortly.services', [])
     });
   }
 
-  service.addLink = function(link) {
-    $http({
+  service.addLink = function(link, errorHandler) {
+    return $http({
       method: 'POST',
       url: '/api/links',
       data: link,
-      // contentType: 'application/json'
     }).then(function(data) {
       return;
-    }).catch(function(error) {
-      console.error(error);
-    })
+    }, function(error) {
+      errorHandler(error);
+    });
   }
 
   service.goToLink = function(code) {
     $http({
       method: 'GET',
-      url: '/api/links/' + code,
-
+      url: '/api/links/' + code
     });
   }
 

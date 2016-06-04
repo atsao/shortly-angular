@@ -1,11 +1,13 @@
-<div class="form-group" ng-class="{ 'has-error': linkForm.url.$invalid }">  
+<div class="form-group" ng-class="{ 'has-error': (linkForm.url.$error.required && linkForm.url.$dirty) || linkForm.url.$error.url }">
   <form name="linkForm" ng-submit="addLink()" novalidate>
-    <input class='text' type='text' name='url' placeholder="Enter a link to shorten" ng-model="link.url" ng-minlength="5">
-    <input type='submit' value='Shorten' ng-disabled="linkForm.$invalid">
+    <input type='url' name='url' placeholder="Enter a link to shorten" ng-model="link.url" ng-minlength="5" required>
+    <input type='submit' value='Shorten' ng-disabled="linkForm.$error.url">
   </form>
   
   <div class='message'>
-    <p ng-show="linkForm.url.$error.minlength" class="alert">URL is too short.</p>
+    <!-- <p ng-show="linkForm.url.$error.minlength" class="alert">URL is too short.</p> -->
+    <p ng-show="linkForm.url.$dirty && linkForm.url.$error.required" class="alert">URL is required.</p>
+    <p ng-show="!linkForm.url.$error.minlength && linkForm.url.$error.url" class="alert">URL is invalid.</p>
   </div>
   <!-- <img class='spinner' src='assets/spiffygif_46x46.gif'> -->
 </div>

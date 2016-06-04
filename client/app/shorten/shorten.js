@@ -4,13 +4,8 @@ angular.module('shortly.shorten', [])
   $scope.link = {};
 
   $scope.addLink = function() {
-    Links.addLink($scope.link, function(error, data) {
-      // $scope.validationError = error;
-      // $timeout(function() {
-      //   $scope.validationError = '';
-      //   $scope.link.url = '';
-      //   $scope.linkForm.$setPristine();
-      // }, 5000);
+    Links.addLink($scope.link).then(function() {
+      $location.path('/links');
     });
   }
 

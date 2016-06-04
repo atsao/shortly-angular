@@ -1,6 +1,6 @@
 angular.module('shortly.shorten', [])
 
-.controller('ShortenController', function ($scope, $location, Links, Auth) {
+.controller('ShortenController', function ($scope, $location, Links) {
   $scope.link = {};
 
   $scope.addLink = function() {
@@ -8,9 +8,5 @@ angular.module('shortly.shorten', [])
       $location.path('/links');
     });
   }
-
-  // if (!Auth.isAuth()) {
-  //   $location.path('/signin');
-  // }
 
 });

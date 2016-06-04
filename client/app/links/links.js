@@ -1,13 +1,14 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links, Auth, $location) {
-  // Your code here
+.controller('LinksController', function ($scope, Links, Auth) {
   $scope.data = [];
   
   $scope.getLinks = function() {
     Links.getLinks().then(function(data) {
       $scope.data.links = data.data;
-    }).catch();
+    }).catch(function(error) {
+      console.error(error);
+    });
   }
 
   $scope.goToLink = function(code) {

@@ -5,10 +5,12 @@ angular.module('shortly.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
+  // $scope.loggedIn = true;
 
   $scope.signin = function () {
     Auth.signin($scope.user)
       .then(function (token) {
+        // $scope.loggedIn = true;
         $window.localStorage.setItem('com.shortly', token);
         $location.path('/links');
       })

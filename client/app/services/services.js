@@ -81,22 +81,4 @@ angular.module('shortly.services', [])
     isAuth: isAuth,
     signout: signout
   };
-})
-
-.factory('Flash', function($rootScope) {
-  var queue = [];
-  var currentMessage = '';
-
-  $rootScope.$on("$routeChangeSuccess", function() {
-    currentMessage = queue.shift() || '';
-  });
-
-  return {
-    setMessage: function(message) {
-      queue.push(message);
-    },
-    getmessage: function() {
-      return currentMessage;
-    }
-  }
 });

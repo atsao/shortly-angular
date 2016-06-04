@@ -14,5 +14,9 @@ angular.module('shortly.links', [])
     Links.goToLink(code);
   }
 
-  $scope.getLinks();
+  if (Auth.isAuth()) {
+    $scope.getLinks();
+  } else {
+    console.log('unauth');
+  }
 });

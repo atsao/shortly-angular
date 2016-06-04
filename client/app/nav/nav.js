@@ -8,11 +8,13 @@ angular.module('shortly.nav', [])
 
       $scope.signout = function() {
         Auth.signout();
-        $scope.loggedIn = false;
+        // $scope.loggedIn = false;
       }
 
-      if (Auth.isAuth) {
+      if (Auth.isAuth()) {
         $scope.loggedIn = true;
+      } else {
+        $scope.loggedIn = false;
       }
     }
   };

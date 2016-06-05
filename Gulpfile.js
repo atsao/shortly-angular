@@ -5,7 +5,8 @@ var gulp      = require('gulp'),
     bs        = require('browser-sync'),
     reload    = bs.reload,
     when      = require('gulp-if'),
-    shell     = require('gulp-shell');
+    shell     = require('gulp-shell'),
+    sass = require('gulp-sass');
 
 
 // the paths to our app files
@@ -20,7 +21,7 @@ var paths = {
 // any changes made to your
 // client side code will automagically refresh your page
 // with the new changes
-gulp.task('start', ['serve'],function () {
+gulp.task('start', ['serve', 'sass-watch'],function () {
   bs({
     notify: true,
     // address for server,
@@ -30,6 +31,16 @@ gulp.task('start', ['serve'],function () {
     proxy: 'localhost:8000',
     port: 8888
   });
+});
+
+gulp.task('sass', function() {
+  return gulp.src('./client/styles/sass/**/*.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('./client/styles/'))
+});
+
+gulp.task('sass-watch', function() {
+  gulp.watch('./client/styles/sass/**/*.scss', ['sass']);
 });
 
 gulp.task('karma', shell.task([

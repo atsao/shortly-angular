@@ -5,7 +5,7 @@
 <div class="link" ng-repeat="link in data.links | orderBy: '-visits' | filter:searchLink">
   <a href='{{ link.base_url }}/api/links/{{ link.code }}'>
     <img src='./assets/redirect_icon.png'/>
-    <div class='visits'><span class='count'>{{ link.visits }}</span>Visits</div>
+    <div class='visits'><span class='count'>{{ link.visits }}</span> Visits</div>
     <div class='title'>{{ link.title }}</div>
     <div class='original'>{{ link.url }}</div>
     {{ link.base_url }}/{{ link.code }}

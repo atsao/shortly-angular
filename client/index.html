@@ -7,26 +7,26 @@
     <base href="/">
   </head>
   <body>
-    <div id="container">
-      <h1>Shortly</h1>
-
-      <nav></nav>
+    <div class="container">
+      <h1 class="portal"><a href="/" title="Shortly">Shortly</a></h1>
+    </div>
+    <nav></nav>
       
       <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
+    <div class="container">
       <div ng-view></div>
-
-      <script src="lib/angular/angular.js"></script>
-      <script src="lib/angular-route/angular-route.js"></script>
-
-      <script src="app/app.js"></script>
-      <script src="app/auth/auth.js"></script>
-      <script src="app/nav/nav.js"></script>
-      <script src="app/links/links.js"></script>
-      <script src="app/shorten/shorten.js"></script>
-      <script src="app/services/services.js"></script>
     </div>
     <script type='text/javascript' id="__bs_script__">//<![CDATA[
     document.write("<script async src='//HOST:3000/browser-sync/browser-sync-client.1.9.2.js'><\/script>".replace(/HOST/g, location.hostname).replace(/PORT/g, location.port));
 //]]></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/auth/auth.js"></script>
+    <script src="app/nav/nav.js"></script>
+    <script src="app/links/links.js"></script>
+    <script src="app/shorten/shorten.js"></script>
+    <script src="app/services/services.js"></script>
   </body>
 </html>

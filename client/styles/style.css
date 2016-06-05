@@ -1,106 +1,277 @@
-body {
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
-  margin-top: 10px;
-  font-family: arial, sans-serif;
-}
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.navigation, .link {
+  *zoom: 1; }
+  .navigation:before, .link:before, .navigation:after, .link:after {
+    content: " ";
+    display: table; }
+  .navigation:after, .link:after {
+    clear: both; }
+
+body .em {
+  font-style: italic; }
+
+body strong {
+  font-weight: 700; }
+
+body p {
+  color: inherit;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1em;
+  max-width: auto; }
+
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  color: #404040;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 0.5em; }
+
+body h1 small, body h2 small, body h3 small, body h4 small, body h5 small, body h6 small {
+  color: #a6a6a6; }
+
+body .code {
+  font-family: "Consolas", "Courier New", mono; }
+
+body ul, body .ul {
+  list-style-type: disc; }
+
+body small {
+  font-size: 8.5px;
+  font-size: 0.85rem; }
+
+h1 {
+  font-size: 32px;
+  font-size: 2rem; }
+
+h2 {
+  font-size: 26px;
+  font-size: 1.625rem; }
+
+h3 {
+  font-size: 24px;
+  font-size: 1.5rem; }
+
+h4 {
+  font-size: 22px;
+  font-size: 1.375rem; }
+
+h5 {
+  font-size: 20px;
+  font-size: 1.25rem; }
+
+h6 {
+  font-size: 16px;
+  font-size: 1rem; }
+
+h1 small {
+  font-size: calc($size * $small-font-size)px;
+  font-size: 1.75rem; }
+
+h2 small {
+  font-size: calc($size * $small-font-size)px;
+  font-size: 1.42188rem; }
+
+h3 small {
+  font-size: calc($size * $small-font-size)px;
+  font-size: 1.3125rem; }
+
+h4 small {
+  font-size: calc($size * $small-font-size)px;
+  font-size: 1.20312rem; }
+
+h5 small {
+  font-size: calc($size * $small-font-size)px;
+  font-size: 1.09375rem; }
+
+h6 small {
+  font-size: calc($size * $small-font-size)px;
+  font-size: 0.875rem; }
+
+@media screen and (min-width: 40em) {
+  h1 {
+    font-size: 48px;
+    font-size: 3rem; }
+  h2 {
+    font-size: 40px;
+    font-size: 2.5rem; }
+  h3 {
+    font-size: 31px;
+    font-size: 1.9375rem; }
+  h4 {
+    font-size: 25px;
+    font-size: 1.5625rem; }
+  h5 {
+    font-size: 20px;
+    font-size: 1.25rem; }
+  h6 {
+    font-size: 16px;
+    font-size: 1rem; }
+  h1 small {
+    font-size: calc($size * $small-font-size)px;
+    font-size: 2.625rem; }
+  h2 small {
+    font-size: calc($size * $small-font-size)px;
+    font-size: 2.1875rem; }
+  h3 small {
+    font-size: calc($size * $small-font-size)px;
+    font-size: 1.69531rem; }
+  h4 small {
+    font-size: calc($size * $small-font-size)px;
+    font-size: 1.36719rem; }
+  h5 small {
+    font-size: calc($size * $small-font-size)px;
+    font-size: 1.09375rem; }
+  h6 small {
+    font-size: calc($size * $small-font-size)px;
+    font-size: 0.875rem; } }
+
+html {
+  box-sizing: border-box; }
+
+*, *::before, *::after {
+  box-sizing: inherit; }
+
+body {
+  background: #fff;
+  color: #666;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  min-width: 320px;
+  z-index: 0; }
+
+.portal {
+  margin-bottom: 0; }
 
 a {
   color: #333;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-h1 {
-  font-style: italic;
-  margin-bottom: 10px;
-}
+  text-decoration: none; }
 
 .navigation {
   width: 100%;
   height: 40px;
-  background-color: #eee;
-}
+  background-color: #eee; }
 
 .navigation ul {
   margin: 0;
   padding: 0;
-  list-style: none;
-}
+  list-style: none; }
 
 .navigation li {
-  float: left;
-}
+  float: left; }
 
 .navigation .logout {
-  float: right;
-}
+  float: right; }
 
-.navigation li a , .logout {
+.navigation li a, .logout {
   width: 100px;
   height: 20px;
-  line-height: 20px;
   padding: 10px;
   display: block;
-  text-align: center;
-}
+  text-align: center; }
 
 .navigation li a:hover {
-  background-color: #ddd;
-}
+  background-color: #ddd; }
 
 .navigation li a.selected {
-  background-color: #ccc;
-}
+  background-color: #ccc; }
 
-#container {
-  clear: both;
-  margin-top: 10px;
-}
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0 20px;
+  position: relative;
+  overflow: hidden; }
 
 .link {
-  clear: both;
   margin-bottom: 5px;
   padding: 10px;
-  min-height: 50px;
-}
+  min-height: 50px; }
 
 .link:hover {
   background-color: #efe;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .link img {
   float: left;
-  margin: 0 5px;
-}
+  margin: 0 5px; }
 
 .link .visits {
   float: right;
   margin-right: 10px;
-  margin-left: 20px;
-}
+  margin-left: 20px; }
 
 .link .visits .count {
   font-size: 46px;
-  font-weight: 600;
-}
+  font-weight: 600; }
 
 .link .title {
-  font-weight: 600;
-}
+  font-weight: 600; }
 
 .link .original {
   color: #aaa;
-  font-size: 12px;
-}
+  font-size: 12px; }
 
 .link .info {
-  margin-left: 55px;
-}
+  margin-left: 55px; }
 
 form {
-  margin: 10px;
-}
+  margin: 10px; }
 
 input:not([type=submit]) {
   width: 360px;
@@ -111,47 +282,51 @@ input:not([type=submit]) {
   outline: none;
   box-shadow: none;
   border: solid 1px #ccc;
-  border-radius: 5px;
-}
-
-
+  border-radius: 5px; }
 
 .error {
   background-color: #fee;
   color: #a33;
   padding: 10px;
-  margin: 0 10px;
-}
+  margin: 0 10px; }
 
 .creator {
-  height: 50px;
-}
+  height: 50px; }
 
 .creator form {
   float: left;
-  height: 80px;
-}
+  height: 80px; }
 
 .creator img.spinner {
   height: 46px;
   margin-bottom: 5px;
   padding: 10px;
-  display: none;
-}
+  display: none; }
 
 .creator .message {
-  clear: both;
-}
-
+  clear: both; }
 
 .has-error .alert {
   background-color: #fee;
   color: #a33;
   padding: 10px;
-  margin: 0 10px;
-}
+  margin: 0 10px; }
 
 .has-error input.ng-invalid {
-  border: solid 1px #ff0000;
-}
+  border: solid 1px #db4343; }
 
+.btn {
+  background: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font: inherit;
+  padding: 10px 15px; }
+
+.btn--primary {
+  background: #3498db;
+  border: solid 1px transparent;
+  color: #fff;
+  transition: all 0.3s ease-out; }
+
+.btn--primary:hover {
+  background: #2980b9; }
